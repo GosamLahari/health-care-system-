@@ -1,0 +1,55 @@
+body {
+    background-color: #e0f7fa; /* Light sky-blue background */
+    font-family: Arial, sans-serif;
+    color: #333; /* Dark gray text */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    color: #00796b; /* Darker greenish-blue for the heading */
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+form {
+    background-color: #ffffff; /* White background for the form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #00796b; /* Button color matching the heading */
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #004d40; /* Darker shade on hover */
+}
