@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('{{ url_for('static', filename='sid new.png') }}'); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            background-color:rgba(255, 255, 255, 0.6); /* White background with opacity for readability */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px auto;
+            width: 80%; /* Adjust width as needed */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2, h3, h4 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            text-align: center;
+        }
+
+        li {
+            background-color: #ffffff;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 5px;
+            width: 60%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            width: fit-content;
+        }
+    </style>
+</head>
+<body>
+    <!-- Container for the output -->
+    <div class="container">
+        <h1>Recommendations for {{ name }}</h1>
+        <h2>Chronic Disease: {{ disease }}</h2>
+        
+        <!-- Diet Recommendations Section -->
+        <section>
+            <h3>Diet Recommendations:</h3>
+            
+            <!-- Morning Diet -->
+            <h4>Morning:</h4>
+            <ul>
+                {% if diet_morning and diet_morning[0] %}
+                    {% for diet in diet_morning %}
+                        <li>{{ diet }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li>No morning diet recommendations available.</li>
+                {% endif %}
+            </ul>
+            
+            <!-- Afternoon Diet -->
+            <h4>Afternoon:</h4>
+            <ul>
+                {% if diet_afternoon and diet_afternoon[0] %}
+                    {% for diet in diet_afternoon %}
+                        <li>{{ diet }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li>No afternoon diet recommendations available.</li>
+                {% endif %}
+            </ul>
+            
+            <!-- Night Diet -->
+            <h4>Night:</h4>
+            <ul>
+                {% if diet_night and diet_night[0] %}
+                    {% for diet in diet_night %}
+                        <li>{{ diet }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li>No night diet recommendations available.</li>
+                {% endif %}
+            </ul>
+        </section>
+        
+        <!-- Yoga Recommendations Section -->
+        <section>
+            <h3>Yoga Recommendations:</h3>
+            
+            <!-- Morning Yoga -->
+            <h4>Morning:</h4>
+            <ul>
+                {% if yoga_morning and yoga_morning[0] %}
+                    {% for yoga in yoga_morning %}
+                        <li>{{ yoga }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li>No morning yoga recommendations available.</li>
+                {% endif %}
+            </ul>
+            
+            <!-- Afternoon Yoga -->
+            <h4>Afternoon:</h4>
+            <ul>
+                {% if yoga_afternoon and yoga_afternoon[0] %}
+                    {% for yoga in yoga_afternoon %}
+                        <li>{{ yoga }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li>No afternoon yoga recommendations available.</li>
+                {% endif %}
+            </ul>
+            
+            <!-- Evening Yoga -->
+            <h4>Evening:</h4>
+            <ul>
+                {% if yoga_evening and yoga_evening[0] %}
+                    {% for yoga in yoga_evening %}
+                        <li>{{ yoga }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li>No evening yoga recommendations available.</li>
+                {% endif %}
+            </ul>
+            
+            <!-- Night Yoga -->
+            <h4>Night:</h4>
+            <ul>
+                {% if yoga_night and yoga_night[0] %}
+                    {% for yoga in yoga_night %}
+                        <li>{{ yoga }}</li>
+                    {% endfor %}
+                {% else %}
+                    <li>No night yoga recommendations available.</li>
+                {% endif %}
+            </ul>
+        </section>
+        
+        <!-- Link to go back to the input form -->
+        <a href="{{ url_for('index') }}">Go back</a>
+    </div> <!-- End of container -->
+</body>
+</html>
