@@ -4,13 +4,13 @@ import pandas as pd
 app = Flask(__name__)
 
 # Load the dataset
-df = pd.read_excel('Yoga-and-Diet-AI-ft/data/chronic_diseases_recommendations_expanded.xlsx')
+df = pd.read_excel('data/chronic_diseases_recommendations_expanded copy.xlsx')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         name = request.form['name']
-        age_range = request.form['age']  # Age is now a range like "30-40"
+        age_range = request.form['age']  
         weight = request.form['weight']
         bp = request.form['bp']
         gender = request.form['gender'].strip().lower()
@@ -32,15 +32,15 @@ def index():
         # Convert 'age' to str and strip any whitespaces in the DataFrame
         df['age'] = df['age'].astype(str).str.strip()
 
-        # Filter the dataset based on the selected disease, age range, gender, and severity of pain
+        
         recommendations = df[
             (df['Chronic Disease'] == disease) &
-            (df['age'] == age_range) &  # Compare with age range
+            (df['age'] == age_range) &  
             (df['gender'] == gender) &
             (df['severity_of_pain'] == severity_of_pain)
         ]
 
-        # Debugging: Check the filtered results
+        
         print("Filtered Recommendations: ", recommendations)
 
         if not recommendations.empty:
@@ -68,6 +68,21 @@ def index():
                                yoga_evening=yoga_evening, yoga_night=yoga_night)
     
     return render_template('index.html')
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+
+@app.route('/developer')
+def developer():
+    return render_template('developer.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
