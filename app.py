@@ -4,7 +4,7 @@ import pandas as pd
 app = Flask(__name__)
 
 # Load the dataset
-df = pd.read_excel('data/chronic_diseases_recommendations_expanded copy.xlsx')
+df = pd.read_excel('C:\Users\LENOVO\health-care-system-')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
